@@ -16,7 +16,8 @@ RSpec.describe "string" do
     ['"Hello \\{name}"', "Hello {name}"],
     ["'Hello {1}'", "Hello 1"],
     ['"Hello {1}"', "Hello 1"],
-    ['"Hello".include?("H")', "true"]
+    ['"Hello".include?("H")', "true"],
+    ['"Hello".downcase', "hello"]
   ].each do |input, output|
     context input do
       let(:input) { input }

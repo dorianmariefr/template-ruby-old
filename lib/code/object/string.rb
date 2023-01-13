@@ -25,6 +25,9 @@ class Code
         elsif operator == "reverse"
           sig(arguments)
           reverse
+        elsif operator == "downcase"
+          sig(arguments)
+          downcase
         elsif operator == "include?"
           sig(arguments) { ::Code::Object::String }
           include?(value)
@@ -85,6 +88,10 @@ class Code
 
       def reverse
         ::Code::Object::String.new(raw.reverse)
+      end
+
+      def downcase
+        ::Code::Object::String.new(raw.downcase)
       end
 
       def include?(value)
