@@ -92,11 +92,11 @@ class Code
 
     def deep_dup(object)
       if object.is_a?(Array)
-        object.map { |element| deep_dup(o) }
+        object.map { |element| deep_dup(element) }
       elsif object.is_a?(Hash)
         object.map { |key, value| [deep_dup(key), deep_dup(value)] }.to_h
       elsif object.is_a?(::Code::Object::List)
-        ::Code::Object::List.new(object.raw.map { |element| deep_dup(o) })
+        ::Code::Object::List.new(object.raw.map { |element| deep_dup(element) })
       elsif object.is_a?(::Code::Object::Dictionnary)
         ::Code::Object::Dictionnary.new(
           object.raw.map { |key, value| [deep_dup(key), deep_dup(value)] }.to_h

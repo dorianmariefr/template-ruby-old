@@ -17,4 +17,13 @@ RSpec.describe "function" do
       )
     ).to eq("Hello")
   end
+
+  it "works with arrays" do
+    expect(
+      Code.evaluate(
+        "items.map { |item| item.title }",
+        ruby: { items: [{ title: "Hello" }] }
+      )
+    ).to eq(["Hello"])
+  end
 end
